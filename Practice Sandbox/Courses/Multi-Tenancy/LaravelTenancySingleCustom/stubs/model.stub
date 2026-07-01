@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ factoryImport }}
+use App\Traits\Tenantable;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Scopes\ByTenantScope;
+
+#[ScopedBy(ByTenantScope::class)]
+class {{ class }} extends Model
+{
+    {{ factory }}
+    use Tenantable;
+    protected $guarded = [];
+}
